@@ -5,10 +5,12 @@ import {
     GoogleAuthProvider,
     onAuthStateChanged,
     signInWithEmailAndPassword,
-    signInWithPopup, signOut
+    signInWithPopup,
+    signOut,
+    FacebookAuthProvider
 } from "firebase/auth";
 import {UserData} from "../data/UserData";
-import { FacebookAuthProvider } from "firebase/auth";
+
 
 namespace FirebaseAuthService {
 
@@ -65,7 +67,7 @@ namespace FirebaseAuthService {
         // login/log out -> run the call back function
         // login -> user
         // login fail-> null
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, (user: any) => {
             let loginUser: UserData | null;
             if (user) {
                 // User is signed in, see docs for a list of available properties
